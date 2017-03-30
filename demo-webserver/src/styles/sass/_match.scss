@@ -1,0 +1,117 @@
+@import 'variables';
+
+.match {
+    position: relative;
+
+    &__info {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: auto;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        padding: 0 $padding-small;
+
+        &--top {
+            top: 0;
+            bottom: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: $padding-small;
+        }
+
+        &--bottom {
+            top: auto;
+            bottom: 0;
+            text-align: right;
+            padding-bottom: $padding-small;
+            font-size: 1.25em;
+            color: $color-white-base;
+        }
+    }
+
+    &__name {
+        font-size: 1.3em;
+        color: $color-red-base;
+    }
+
+    &__age,
+    &__distance {
+        display: inline-block;
+        font-size: 0.7em;
+        color: $color-red-base;
+    }
+
+    &__age {
+        border-right: 1px solid $color-red-base;
+        padding-right: $padding-small;
+    }
+
+    &__distance {
+        padding-left: $padding-small;
+    }
+
+    &__actions {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &-icon {
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            color: $color-white-base;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &--dislike {
+                border: 2px solid $color-red-secondary;
+                margin-right: $padding-small;
+
+                &:hover {
+                    background: $color-red-secondary;
+                    border-color: $color-white-base;
+                }
+            }
+
+            &--superlike {
+                border: 2px solid $color-blue-base;
+                margin-right: $padding-small;
+
+                &:hover {
+                    border-color: $color-white-base;
+                    background: $color-blue-base;
+                }
+            }
+
+            &--like {
+                border: 2px solid $color-green-base;
+
+                &:hover {
+                    border-color: $color-white-base;
+                    background: $color-green-base;
+                }
+            }
+        }
+    }
+
+    &__image-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.1);
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+    }
+}

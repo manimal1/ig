@@ -1,0 +1,73 @@
+head
+    block head
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+
+        // Latest compiled and minified CSS
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+
+        // Optional theme
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css", integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp", crossorigin="anonymous")
+
+        link(rel="stylesheet", type="text/css", href="/public/main.css")
+
+        script(src="/public/bundle.js")
+
+body
+    nav(class="navbar navbar-default navbar-fixed-top")
+        div(class="container-fluid navbar-container")
+            //- Logo and toggle for mobile display
+            div(class="navbar-header")
+                button(type="button", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#bs-example-navbar-collapse-1", aria-expanded="false")
+                    span(class="sr-only") Toggle navigation
+                    span(class="icon-bar")
+                    span(class="icon-bar")
+                    span(class="icon-bar")
+                a(class="navbar-brand" href="#") LOGO
+
+            div(class="collapse navbar-collapse", id="bs-example-navbar-collapse-1")
+                ul(class="nav navbar-nav")
+                    block navlinks
+                        li(class="active")
+                            a(href="/") Home
+                            span(class="sr-only") (current)
+                        li
+                            a(href="/messages") Messages
+                        li
+                            a(href="/groups") Groups
+
+                ul(class="nav navbar-nav navbar-right")
+                    li(class="dropdown")
+                        a(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false", class="dropdown-toggle")
+                            span
+                                img(src="" id="user-image" class="img-circle")
+                            span(id="js-tinder-name")
+                            span(class="caret")
+                        ul(class="dropdown-menu")
+                            li
+                                a(href="/settings") Settings
+                            li
+                                a(href="/logout") Log Out
+
+    block filter
+        div(class="js-filter-bar filter")
+            div(class="filter__wrapper")
+                div(class="filter__selectors--left")
+                    div(class="filter__item pad-right-sm")
+                        span(class="pad-right-sm") Likes left:
+                        span(id="js-tinder-likes" class="pad-left-sm pad-right-sm circle circle--small")
+                    div(class="filter__item")
+                        span(class="pad-right-sm") Super Likes:
+                        span(id="js-tinder-super-likes" class="pad-left-sm pad-right-sm circle circle--small")
+                div(class="filter__selectors--middle")
+                    div(class="filter__button") Distance
+                    div(class="filter__button") Age
+                    div(class="filter__button") Auto-like
+                div(class="filter__selectors--right")
+                    div(class="filter__item")
+                        span(class="pad-right-sm") New Matches:
+                        span(class="pad-left-sm pad-right-sm circle circle--small")
+
+    block content
+        div(class="js-content content container-fluid")
+            div(class="row")
+                div(id="js-match-content" class="js-match-content")

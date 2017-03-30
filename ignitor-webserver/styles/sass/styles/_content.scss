@@ -1,0 +1,35 @@
+@import 'variables';
+
+body {
+    background: #f6f6f6;
+}
+
+.content {
+    margin-top: $navbar-height + $filter-height;
+    padding-top: $padding;
+}
+
+.circle {
+    &--small {
+        height: 20px;
+        width: 20px;
+        border-radius: 10px;
+        background-color: $color-green-base;
+        color: $color-black-base;
+    }
+}
+
+.pad-right-sm {
+    padding-right: $padding-small;
+}
+
+.pad-left-sm {
+    padding-left: $padding-small;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next,
+.carousel-control .icon-prev {
+    font-size: 0.75em;
+}

@@ -1,0 +1,29 @@
+{
+    "background": {
+      "scripts": [ "lib/jquery.min.js","ignitor.js","tinder_api.js","api_callhandler.js"] 
+    },
+      "browser_action": {
+      "default_icon": "icon.png",
+      "default_title": "Click here!"
+    },
+      "content_scripts": [ {
+      "include_globs": [ "*464891386855067*redirect_uri=fbconnect%3A%2F%2Fsuccess*", "*redirect_uri=fbconnect%3A%2F%2Fsuccess*464891386855067*" ],
+      "js": [ "lib/jquery.min.js", "Content_Scripts/facebook_auth.js" ] ,
+      "matches": [ "https://www.facebook.com/v2.0/dialog/oauth*" ],
+      "run_at": "document_start"},
+      {
+      "js": [ "lib/jquery.min.js","Content_Scripts/ignitor_inject.js" ],
+      "matches": [ "*://ignitor.me/*","*://localhost/*" ],
+      "run_at": "document_start"}
+    ],
+    "content_security_policy": "script-src 'self' https://api.gotinder.com 'unsafe-eval'; object-src 'self'",
+      "externally_connectable": {
+      "matches": [ "*://ignitor.me/*","*://localhost/*" ]
+      },
+
+    "name": "ignitor",
+    "description": "Ignitor third-party tinder client",
+    "manifest_version": 2,
+    "version": "1.0",
+    "permissions": [ "storage", "webRequest", "webRequestBlocking", "tabs", "*://ignitor.me/*","*://api.gotinder.com/*","*://localhost/*" ]
+}

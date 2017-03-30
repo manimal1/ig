@@ -1,0 +1,62 @@
+@import 'variables';
+
+.navbar{
+
+    &.navbar-default {
+        background: $color-white-base;
+        color: $color-black-base;
+        border: 0;
+        margin: 0;
+
+        .navbar-brand {
+            color: $color-red-base;
+        }
+
+        .navbar-nav>li>a {
+            color: $color-black-base;
+        }
+
+        .navbar-nav>.active>a,
+        .navbar-nav>.open>a {
+            background: $color-grey-base;
+            color: $color-white-base;
+        }
+
+        .dropdown-menu>li {
+            color: $color-grey-base;
+
+            &:hover {
+                color: $color-red-base;
+            }
+        }
+    }
+
+    .navbar-container {
+        padding-left: 0;
+
+        .navbar-header {
+            float: none;
+            position: absolute;
+            width: 6%;
+            top: 0;
+            left: 44%;
+            right: auto;
+        }
+    }
+
+    .navbar-right {
+        .dropdown-menu {
+            left: 0;
+            padding: 0;
+
+            li{
+                cursor: pointer;
+                padding: $padding;
+
+                &:hover {
+                    background-color: $color-grey-bg;
+                }
+            }
+        }
+    }
+}

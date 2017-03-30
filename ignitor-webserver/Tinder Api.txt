@@ -1,0 +1,126 @@
+Tinder API 
+
+:Login Details:
+https://api.gotinder.com/auth
+
+:Find Users
+https://api.gotinder.com/recs/core?locale=en - Done
+	Return Codes
+		200 - Ok
+		401 - No Auth
+	
+:Find Groups
+https://api.gotinder.com/recs/social?locale=en - Done
+	Return Codes
+		200 - Ok
+		401 - No Auth
+		
+:Get Group info
+https://api.gotinder.com/group/xz8a0nGnEa
+Can be used to link to facebook accounts
+
+:Like Users
+https://api.gotinder.com/like/586ec28e2121c87d0a2f0eaf?photoId=d14e2abd-f9da-48e0-8a42-64a63fa040d0&content_hash=lL1Iv3Hkh1zSlwcwQuLosnkU9pH1wHLOhm4CrLTMXh7wH8Z&s_number=151169869
+
+:Pass User
+https://api.gotinder.com/pass/53077b45f4c43e005f00150e?photoId=00e98ddc-4d3b-41c7-bde3-db66cab891c6&content_hash=LLhZkU1acxqt7qC3jFe7UM5FQ1cYpFE4SYes20sGZs2vFpZ&s_number=12625280
+
+:Super Like
+https://api.gotinder.com/like/564c903d5fb1b35b059db922/super?photoId=d221de8a-cc68-4737-8bf7-4f7546a9383d&s_number=15941405
+
+:Mute User
+https://api.gotinder.com/matches/mute/52a4a011dc8a970a20000252541c9c34dbd2e3527f07f95b
+
+:Get Shareable URL
+https://api.gotinder.com/user/586eed31b389251c14d8c404/share
+
+:Report User
+https://api.gotinder.com/report/user/541c9c34dbd2e3527f07f95b
+
+:Like Group
+https://api.gotinder.com/group/like/*GroupID*
+
+:Pass Group
+https://api.gotinder.com/group/pass/Lzx7qAG2rO
+
+:Super Like Group
+https://api.gotinder.com/group/superlike/v6QG5BnDzw
+
+:Send Location
+https://api.gotinder.com/user/ping # Sends Location
+
+:Get Profile Info
+https://api.gotinder.com/meta
+
+:Tinder Updates
+https://api.gotinder.com/updates
+
+:Get User Info
+https://api.gotinder.com/user/*UserID*
+
+:Get Common Connections
+https://api.gotinder.com/user/*UserID*/common_connections
+
+:Change Profile/Get Profile Info
+https://api.gotinder.com/profile
+
+:Popular Locations
+https://api.gotinder.com/location/popular?locale=en
+
+:Spotify Connection
+https://api.gotinder.com/v2/profile?include=spotify
+
+:Boost Info
+https://api.gotinder.com/v2/profile?include=boost
+
+:Create Username
+https://api.gotinder.com/profile/username
+
+:Change Location
+https://api.gotinder.com/passport/user/travel
+
+:Reset Location
+https://api.gotinder.com/passport/user/reset
+
+
+:Unknown
+https://etl.tindersparks.com/v2/batch/event
+https://globalping.gotinder.com/v1/timing
+
+
+
+:Tinder Group Building
+https://api.gotinder.com/group/friends -- HTTP get here returns frineds with tinder
+https://api.gotinder.com/group -- HTTP Post here creates the group, look at below JSon for what to post
+{"group":{"members":["527d9befb9a6019859007124"]},"timezone":"+0100"}
+https://api.gotinder.com/updates -- Next call this to pull the newly created group inf or call this to do a whole profile refresh https://api.gotinder.com/meta
+
+
+:Tinder Boost
+https://api.gotinder.com/boost -- HTTP Get here returns boost info and starts boost
+reply :
+{
+  "allotment": 1,
+  "allotment_used": 1,
+  "allotment_remaining": 0,
+  "internal_remaining": 0,
+  "purchased_remaining": 0,
+  "remaining": 0,
+  "boost_refresh_amount": 1,
+  "boost_refresh_interval": 1,
+  "boost_refresh_interval_unit": "w",
+  "duration": 1800000,
+  "boost_id": "587766ebeeebcf6447c689ed",
+  "multiplier": 8.9,
+  "resets_at": 1484824939437,
+  "consumed_from": 0,
+  "expires_at": 1484221939437
+}
+https://api.gotinder.com/updates?is_boosting=true&boost_cursor=0 -- Ping pong updates now look like this but return is same
+https://api.gotinder.com/like/5279950846fad5be4a0005c4?photoId=b66b0f89-758f-42cc-8bfe-8b7576365d5f&content_hash=2OMuz9UrId3ixbSpXf1ncA5ClQUeDi1MT9oTpLi8bfROUlR&s_number=3327835&is_boosting=true //Likes look like this, it will need the is_boosting part
+https://api.gotinder.com/group/like/PrlGQ45a6d?is_boosting=true -- Group likes look like this
+
+
+:Tinder Ping Pong
+https://api.gotinder.com/updates -- Send this every 2 seconds, contains update json (Use this for background updates,)
+

@@ -1,0 +1,28 @@
+div(class="col-sm-12 col-md-6 col-lg-3 match js-match")
+      div(id="carousel-match-" + index class="carousel slide match__carousel" data-interval="false")
+          div(class="carousel-inner" role="listbox")
+              each image in photos
+                div(class="item " + image.className )
+                    div(class="match__image-overlay")
+                    img(style="background-image: url(" + image.imageUrl + ");" )
+          a(class="left carousel-control" href="#carousel-match-" + index role="button" data-slide="prev")
+              span(class="glyphicon glyphicon-chevron-left", aria-hidden="true")
+              span(class="sr-only") | Previous
+          a(class="right carousel-control" href="#carousel-match-" + index role="button" data-slide="next")
+              span(class="glyphicon glyphicon-chevron-right" aria-hidden="true")
+              span(class="sr-only") | Next
+          div(class="match__info match__info--top")
+              span(class="match__name") #{name}
+              div(class="match__info--right")
+                  div(class="match__age")
+                      span(class="match__age-text")
+                      span(class="match__age--number js-match-age") #{age}
+                  div(class="match__distance") #{distance}
+          div(class="match__info match__info--bottom")
+              div(class="match__actions")
+                  div(class="match__actions-icon match__actions-icon--dislike")
+                      span(class="glyphicon glyphicon-remove" aria-hidden="true")
+                  div(class="match__actions-icon match__actions-icon--superlike")
+                      span(class="glyphicon glyphicon-heart" aria-hidden="true")
+                  div(class="match__actions-icon match__actions-icon--like")
+                      span(class="glyphicon glyphicon-ok" aria-hidden="true")

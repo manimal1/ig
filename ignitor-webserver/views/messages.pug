@@ -1,0 +1,14 @@
+extends index.pug
+
+block navlinks
+    li
+        a(href="/") Home
+    li(class="active")
+        a(href="/messages") Messages
+        span(class="sr-only") (current)
+    li
+        a(href="/groups") Groups
+
+block content
+    div(class="js-content content container-fluid")
+        div messages go here!
